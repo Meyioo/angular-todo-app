@@ -111,7 +111,7 @@ const initialTodos: Todo[] = [
 })
 export class TodoService {
   private readonly localStorageKey = 'todos';
-  private readonly todosSubject = new BehaviorSubject<Todo[]>([]);
+  private readonly todosSubject = new BehaviorSubject<Todo[]>(initialTodos);
 
   constructor() {
     this.todosSubject.next(this.loadTodosFromLocalStorage());

@@ -22,11 +22,11 @@ export class TodoListComponent {
     .pipe(combineLatestWith(this.searchService.search$))
     .pipe(
       map(([todos, search]) => {
-        const filteredTodos = todos?.filter(
+        const filteredTodos = todos.filter(
           (todo) => todo.completed !== this.showOpenTodos,
         );
         return search.length > 0
-          ? filteredTodos?.filter(
+          ? filteredTodos.filter(
               (todo) =>
                 todo.title.toLowerCase().includes(search.toLowerCase()) ||
                 todo.description.toLowerCase().includes(search.toLowerCase()),
