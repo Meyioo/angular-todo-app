@@ -14,7 +14,6 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
   imports: [CommonModule, TodoItemComponent],
 })
 export class TodoListComponent {
-  @Input() public completed: boolean = false;
   @Input() public showOpenTodos = true;
 
   public todos$: Observable<Todo[]>;
@@ -27,7 +26,9 @@ export class TodoListComponent {
       .pipe(combineLatestWith(this.searchService.search$))
       .pipe(
         map(([todos, search]) => {
-          const filteredTodos = this.completed ? todos.completed : todos.open;
+          const filteredTodos = this.showOpenTodos
+            ? todos.open
+            : todos.completed;
           return search.length > 0
             ? filteredTodos.filter(
                 (todo) =>

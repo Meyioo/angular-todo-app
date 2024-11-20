@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TodoListComponent } from '../components/todo-list/todo-list.component';
+import { TitleService } from '../service/title.service';
 
 @Component({
   selector: 'app-todos',
@@ -8,4 +9,14 @@ import { TodoListComponent } from '../components/todo-list/todo-list.component';
   standalone: true,
   imports: [TodoListComponent],
 })
-export class TodosComponent {}
+export class TodosComponent {
+  public showOpenTodos = true;
+
+  private readonly titleService = inject(TitleService);
+
+  constructor() {
+    this.titleService.title$.subscribe(
+      (title) => (this.showOpenTodos = title === 'Offene Aufgaben'),
+    );
+  }
+}
