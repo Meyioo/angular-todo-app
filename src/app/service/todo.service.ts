@@ -128,12 +128,14 @@ export class TodoService {
       .pipe(map((todos) => todos.filter((todo) => todo.selected)));
   }
 
-  addTodo(todo: Todo): void {
+  public addTodo(todo: Todo): void {
     const todos = this.todosSubject.getValue();
-    const updatedTodos = [
+    const updatedTodos: Todo[] = [
       ...todos,
       {
         ...todo,
+        completed: false,
+        selected: false,
         id: this.generateId(todos),
       },
     ];
