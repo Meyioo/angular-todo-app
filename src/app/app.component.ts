@@ -1,13 +1,19 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { TitleService } from './service/title.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, NavigationComponent, HeaderComponent],
 })
 export class AppComponent {
-  title = 'angular-todo-app';
+  public showSearch = true;
+
+  public readonly titleService = inject(TitleService);
 }
