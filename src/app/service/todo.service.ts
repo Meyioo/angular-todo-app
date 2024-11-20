@@ -111,11 +111,10 @@ const initialTodos: Todo[] = [
 })
 export class TodoService {
   private readonly localStorageKey = 'todos';
-  private readonly todosSubject: BehaviorSubject<Todo[]>;
+  private readonly todosSubject = new BehaviorSubject<Todo[]>([]);
 
   constructor() {
-    const savedTodos = this.loadTodosFromLocalStorage();
-    this.todosSubject = new BehaviorSubject<Todo[]>(savedTodos);
+    this.todosSubject.next(this.loadTodosFromLocalStorage());
   }
 
   get todos$(): Observable<Todo[]> {

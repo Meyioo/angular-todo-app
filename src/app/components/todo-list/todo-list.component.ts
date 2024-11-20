@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
-import { Observable } from 'rxjs';
 import { combineLatestWith, map } from 'rxjs/operators';
 import { SearchService } from '../../service/search.service';
-import { Todo, TodoService } from '../../service/todo.service';
+import { TodoService } from '../../service/todo.service';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
 
 @Component({
@@ -16,27 +15,23 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
 export class TodoListComponent {
   @Input() public showOpenTodos = true;
 
-  public todos$: Observable<Todo[]>;
-
   private readonly todoService = inject(TodoService);
   private readonly searchService = inject(SearchService);
 
-  constructor() {
-    this.todos$ = this.todoService.todos$
-      .pipe(combineLatestWith(this.searchService.search$))
-      .pipe(
-        map(([todos, search]) => {
-          const filteredTodos = todos.filter(
-            (todo) => todo.completed !== this.showOpenTodos,
-          );
-          return search.length > 0
-            ? filteredTodos.filter(
-                (todo) =>
-                  todo.title.toLowerCase().includes(search.toLowerCase()) ||
-                  todo.description.toLowerCase().includes(search.toLowerCase()),
-              )
-            : filteredTodos;
-        }),
-      );
-  }
+  public todos$ = this.todoService.todos$
+    .pipe(combineLatestWith(this.searchService.search$))
+    .pipe(
+      map(([todos, search]) => {
+        const filteredTodos = Array.isArray(todos)
+          ? todos.filter((todo) => todo.completed !== this.showOpenTodos)
+          : [];
+        return search.length > 0
+          ? filteredTodos.filter(
+              (todo) =>
+                todo.title.toLowerCase().includes(search.toLowerCase()) ||
+                todo.description.toLowerCase().includes(search.toLowerCase()),
+            )
+          : filteredTodos;
+      }),
+    );
 }
