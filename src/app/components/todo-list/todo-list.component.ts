@@ -26,7 +26,7 @@ export class TodoListComponent {
           (todo) => todo.completed !== this.showOpenTodos,
         );
         return search.length > 0
-          ? filteredTodos.filter(
+          ? filteredTodos?.filter(
               (todo) =>
                 todo.title.toLowerCase().includes(search.toLowerCase()) ||
                 todo.description.toLowerCase().includes(search.toLowerCase()),
