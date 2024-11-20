@@ -26,9 +26,9 @@ export class TodoListComponent {
       .pipe(combineLatestWith(this.searchService.search$))
       .pipe(
         map(([todos, search]) => {
-          const filteredTodos = this.showOpenTodos
-            ? todos.open
-            : todos.completed;
+          const filteredTodos = todos.filter(
+            (todo) => todo.completed !== this.showOpenTodos,
+          );
           return search.length > 0
             ? filteredTodos.filter(
                 (todo) =>

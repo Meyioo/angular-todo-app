@@ -7,6 +7,7 @@
           class="size-4 rounded border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:ring-offset-gray-900"
           id="checkbox"
           [checked]="todo?.selected"
+          (click)="toggleTodo()"
         />
       </div>
     }

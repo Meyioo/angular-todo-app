@@ -15,6 +15,6 @@ export class TodoItemComponent {
   private readonly todoService = inject(TodoService);
 
   public toggleTodo(): void {
-    //this.todoService.selectTodo(this.todo);
+    this.todoService.selectTodo(this.todo!.id);
   }
 }
