@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
-import { combineLatestWith, filter, map } from 'rxjs/operators';
+import { combineLatestWith, map } from 'rxjs/operators';
 import { SearchService } from '../../service/search.service';
 import { TodoService } from '../../service/todo.service';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
@@ -21,7 +21,6 @@ export class TodoListComponent {
   public todos$ = this.todoService.todos$
     .pipe(combineLatestWith(this.searchService.search$))
     .pipe(
-      filter(([todos, _]) => !!todos),
       map(([todos, search]) => {
         const filteredTodos = todos.filter(
           (todo) => todo.completed !== this.showOpenTodos,

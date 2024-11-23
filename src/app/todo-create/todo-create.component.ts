@@ -27,14 +27,12 @@ export class TodoCreateComponent {
       placeholder: 'Beschreibung hinzufügen',
       type: 'text',
     },
-    { name: 'deadline', placeholder: 'Fälligkeitsdatum', type: 'date' },
   ];
 
   constructor(private readonly fb: FormBuilder) {
     this.todoForm = this.fb.group({
       title: ['', Validators.required],
       description: [''],
-      deadline: [''],
     });
   }
 

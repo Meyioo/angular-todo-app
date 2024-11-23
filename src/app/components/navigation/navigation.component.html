@@ -17,6 +17,7 @@
           class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-blue-700 text-white disabled:bg-blue-500"
           aria-label="Check"
           (click)="todoService.completeSelectedTodos()"
+          [disabled]="todoService.hasNoSelectedTodos$ | async"
         >
           <i class="fas fa-check"></i>
         </button>

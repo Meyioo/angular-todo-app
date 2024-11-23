@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 
 export interface Todo {
@@ -112,6 +113,7 @@ const initialTodos: Todo[] = [
 export class TodoService {
   private readonly localStorageKey = 'todos';
   private readonly todosSubject = new BehaviorSubject<Todo[]>(initialTodos);
+  private readonly router = inject(Router);
 
   constructor() {
     this.todosSubject.next(this.loadTodosFromLocalStorage());
@@ -120,11 +122,10 @@ export class TodoService {
   get todos$(): Observable<Todo[]> {
     return this.todosSubject.asObservable();
   }
-
-  get getSelectedTodos$(): Observable<Todo[]> {
+  get hasNoSelectedTodos$(): Observable<boolean> {
     return this.todosSubject
       .asObservable()
-      .pipe(map((todos) => todos.filter((todo) => todo.selected)));
+      .pipe(map((todos) => todos.every((todo) => !todo.selected)));
   }
 
   public addTodo(todo: Todo): void {
@@ -139,6 +140,7 @@ export class TodoService {
       },
     ];
     this.updateTodos(updatedTodos);
+    this.router.navigate(['/']);
   }
 
   public selectTodo(id: number): void {
