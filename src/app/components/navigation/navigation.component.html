@@ -1,39 +1,79 @@
-<div class="mx-auto w-full">
-  <div class="bg-white px-7 shadow-lg">
-    <div class="flex">
-      <div class="group flex-1">
-        <a
-          href=""
-          class="mx-auto flex w-full items-end justify-center border-b-2 border-transparent px-4 pt-2 text-center text-gray-500"
-        >
-          <span class="block px-1 pb-2 pt-1">
-            <i class="far fa-list mb-1 block pt-1 text-2xl"></i>
-            <span class="block pb-1 text-xs">Offen</span>
-          </span>
-        </a>
-      </div>
-      <div class="group m-auto flex-1">
-        <button
-          class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-blue-700 text-white disabled:bg-blue-500"
-          aria-label="Check"
-          (click)="todoService.completeSelectedTodos()"
-          [disabled]="todoService.hasNoSelectedTodos$ | async"
-        >
-          <i class="fas fa-check"></i>
-        </button>
-      </div>
+<div
+	class="fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600"
+>
+	<div class="font-medium grid max-w-lg mx-auto grid-cols-3 h-16">
+		<a
+			href="/"
+			type="button"
+			class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group active:text-red-400"
+		>
+			<svg
+				class="w-5 h-5 mb-2 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+				aria-hidden="true"
+				xmlns="http://www.w3.org/2000/svg"
+				fill="currentColor"
+				viewBox="0 0 20 20"
+			>
+				<path
+					d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"
+				/>
+			</svg>
+			<span
+				class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+				>Offen</span
+			>
+		</a>
+		<a
+			href="/abgeschlossen"
+			type="button"
+			class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
+		>
+			<svg
+				class="w-6 h-6 text-gray-500 dark:text-white group-hover:text-blue-600"
+				aria-hidden="true"
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				fill="currentColor"
+				viewBox="0 0 24 24"
+			>
+				<path
+					fill-rule="evenodd"
+					d="M9 2a1 1 0 0 0-1 1H6a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2a1 1 0 0 0-1-1H9Zm1 2h4v2h1a1 1 0 1 1 0 2H9a1 1 0 0 1 0-2h1V4Zm5.707 8.707a1 1 0 0 0-1.414-1.414L11 14.586l-1.293-1.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4Z"
+					clip-rule="evenodd"
+				/>
+			</svg>
 
-      <div class="group flex-1">
-        <a
-          href="abgeschlossen"
-          class="mx-auto flex w-full items-end justify-center border-b-2 border-transparent px-4 pt-2 text-center text-gray-500"
-        >
-          <span class="block px-1 pb-2 pt-1">
-            <i class="fas fa-clipboard-check mb-1 block pt-1 text-2xl"></i>
-            <span class="block pb-1 text-xs">Abgeschlossen</span>
-          </span>
-        </a>
-      </div>
-    </div>
-  </div>
+			<span
+				class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+				>Abgeschlossen</span
+			>
+		</a>
+		<a
+			href="/anlegen"
+			type="button"
+			class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
+		>
+			<svg
+				class="w-6 h-6 text-gray-500 dark:text-white"
+				aria-hidden="true"
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				fill="currentColor"
+				viewBox="0 0 24 24"
+			>
+				<path
+					fill-rule="evenodd"
+					d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4.243a1 1 0 1 0-2 0V11H7.757a1 1 0 1 0 0 2H11v3.243a1 1 0 1 0 2 0V13h3.243a1 1 0 1 0 0-2H13V7.757Z"
+					clip-rule="evenodd"
+				/>
+			</svg>
+
+			<span
+				class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+				>Anlegen</span
+			>
+		</a>
+	</div>
 </div>

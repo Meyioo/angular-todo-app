@@ -1,29 +1,50 @@
-<div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-  <form
-    [formGroup]="todoForm"
-    (ngSubmit)="submit()"
-    class="mx-auto mt-4 max-w-md space-y-4"
-  >
-    @for (field of fields; track $index) {
-      <label [for]="field.name" class="sr-only">{{ field.placeholder }}</label>
-      <div class="relative">
-        <input
-          [type]="field.type"
-          [formControlName]="field.name"
-          [name]="field.name"
-          class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-          [placeholder]="field.placeholder"
-        />
-      </div>
-    }
-    <div class="flex items-center justify-between">
-      <button
-        type="submit"
-        class="inline-block w-full rounded-lg bg-blue-700 px-5 py-3 text-sm font-medium text-white"
-        [disabled]="!todoForm.valid"
-      >
-        Aufgabe anlegen
-      </button>
-    </div>
-  </form>
-</div>
+<form [formGroup]="todoForm" (ngSubmit)="submit()">
+	<div class="grid mx-4 gap-6 m-6 md:grid-cols-2">
+		<div>
+			<label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+				>Titel</label
+			>
+			<input
+				type="text"
+				id="title"
+				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				placeholder="Titel eingeben"
+				formControlName="title"
+				required
+			/>
+		</div>
+		<div>
+			<label for="Beschreibung" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+				>Beschreibung</label
+			>
+			<input
+				type="text"
+				id="Beschreibung"
+				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				placeholder="Beschreibung eingeben"
+				formControlName="description"
+				required
+			/>
+		</div>
+		<div>
+			<label for="dueDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+				>Fälligkeitsdatum</label
+			>
+			<input
+				type="date"
+				id="dueDate"
+				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				required
+				formControlName="dueDate"
+			/>
+		</div>
+	</div>
+
+	<button
+		type="submit"
+		[disabled]="!todoForm.valid"
+		class="text-white bg-blue-700 mx-4 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+	>
+		Aufgabe anlegen
+	</button>
+</form>
