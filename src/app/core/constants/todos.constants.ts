@@ -10,7 +10,7 @@ export const DefaultTodos: ITodo[] = [
 		selected: false,
 		dueDate: new Date('2023-12-01'),
 		createDate: new Date('2023-11-30'),
-		priority: PriorityLevel.Medium
+		priorityLevel: PriorityLevel.Medium
 	},
 	{
 		id: 2,
@@ -20,7 +20,7 @@ export const DefaultTodos: ITodo[] = [
 		selected: false,
 		dueDate: new Date('2023-12-02'),
 		createDate: new Date('2023-11-30'),
-		priority: PriorityLevel.High
+		priorityLevel: PriorityLevel.High
 	},
 	{
 		id: 3,
@@ -30,7 +30,7 @@ export const DefaultTodos: ITodo[] = [
 		selected: false,
 		dueDate: new Date('2023-12-03'),
 		createDate: new Date('2023-11-29'),
-		priority: PriorityLevel.Low
+		priorityLevel: PriorityLevel.Low
 	},
 	{
 		id: 4,
@@ -40,7 +40,7 @@ export const DefaultTodos: ITodo[] = [
 		selected: false,
 		dueDate: new Date('2023-12-04'),
 		createDate: new Date('2023-11-28'),
-		priority: PriorityLevel.Medium
+		priorityLevel: PriorityLevel.Medium
 	},
 	{
 		id: 5,
@@ -50,7 +50,7 @@ export const DefaultTodos: ITodo[] = [
 		selected: false,
 		dueDate: new Date('2023-12-05'),
 		createDate: new Date('2023-10-28'),
-		priority: PriorityLevel.Medium
+		priorityLevel: PriorityLevel.Medium
 	},
 	{
 		id: 6,
@@ -60,7 +60,7 @@ export const DefaultTodos: ITodo[] = [
 		selected: false,
 		dueDate: new Date('2023-12-06'),
 		createDate: new Date('2023-10-28'),
-		priority: PriorityLevel.High
+		priorityLevel: PriorityLevel.High
 	},
 	{
 		id: 7,
@@ -70,7 +70,7 @@ export const DefaultTodos: ITodo[] = [
 		selected: false,
 		dueDate: new Date('2023-12-07'),
 		createDate: new Date('2023-10-28'),
-		priority: PriorityLevel.High
+		priorityLevel: PriorityLevel.High
 	},
 	{
 		id: 8,
@@ -80,7 +80,7 @@ export const DefaultTodos: ITodo[] = [
 		selected: false,
 		dueDate: new Date('2023-12-08'),
 		createDate: new Date('2023-10-28'),
-		priority: PriorityLevel.Medium
+		priorityLevel: PriorityLevel.Medium
 	},
 	{
 		id: 9,
@@ -90,7 +90,7 @@ export const DefaultTodos: ITodo[] = [
 		selected: false,
 		dueDate: new Date('2023-12-09'),
 		createDate: new Date('2023-10-28'),
-		priority: PriorityLevel.Medium
+		priorityLevel: PriorityLevel.Medium
 	},
 	{
 		id: 10,
@@ -100,7 +100,7 @@ export const DefaultTodos: ITodo[] = [
 		selected: false,
 		dueDate: new Date('2023-12-10'),
 		createDate: new Date('2023-10-28'),
-		priority: PriorityLevel.Medium
+		priorityLevel: PriorityLevel.Medium
 	},
 	{
 		id: 11,
@@ -110,7 +110,7 @@ export const DefaultTodos: ITodo[] = [
 		selected: false,
 		dueDate: new Date('2023-12-11'),
 		createDate: new Date('2023-10-28'),
-		priority: PriorityLevel.Medium
+		priorityLevel: PriorityLevel.Medium
 	},
 	{
 		id: 12,
@@ -120,7 +120,7 @@ export const DefaultTodos: ITodo[] = [
 		selected: false,
 		dueDate: new Date('2023-12-12'),
 		createDate: new Date('2023-10-28'),
-		priority: PriorityLevel.Medium
+		priorityLevel: PriorityLevel.Medium
 	},
 	{
 		id: 13,
@@ -130,6 +130,6 @@ export const DefaultTodos: ITodo[] = [
 		selected: false,
 		dueDate: new Date('2023-12-13'),
 		createDate: new Date('2023-10-28'),
-		priority: PriorityLevel.Medium
+		priorityLevel: PriorityLevel.Medium
 	}
 ];

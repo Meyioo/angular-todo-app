@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
 import { ITodo } from '../../core/model/todo.model';
 import { TodoService } from '../../service/todo.service';
+import { TodoItemPriorityComponent } from '../todo-item-priority/todo-item-priority.component';
 
 @Component({
 	selector: 'app-todo-item',
 	templateUrl: './todo-item.component.html',
 	styleUrls: ['./todo-item.component.css'],
 	standalone: true,
-	imports: [CommonModule]
+	imports: [CommonModule, TodoItemPriorityComponent]
 })
 export class TodoItemComponent {
 	@Input() public todo: ITodo | null = null;

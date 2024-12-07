@@ -1,4 +1,4 @@
-<button class="flex w-full justify-between border-b-2 p-2 text-left" (click)="toggleTodo()">
+<button class="w-full border-b-2 p-2 text-left" (click)="toggleTodo()">
 	<div class="flex">
 		@if (!todo?.completed) {
 			<div class="me-4 ms-2 flex items-center">
@@ -16,9 +16,16 @@
 				{{ todo?.description }}
 			</p>
 		</div>
-	</div>
 
-	@if (todo?.dueDate) {
-		<div class="text-sm text-gray-500">Fälligkeit: {{ todo?.dueDate | date }}</div>
-	}
+		<div class="ms-auto">
+			<p class="text-pretty text-right text-sm text-gray-700">
+				Fälligkeit: <br />
+				{{ todo?.dueDate | date: 'dd.M.yyyy' }}
+			</p>
+
+			<div class="text-end">
+				<app-todo-item-priority [priorityLevel]="todo?.priorityLevel"></app-todo-item-priority>
+			</div>
+		</div>
+	</div>
 </button>

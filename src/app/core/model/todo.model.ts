@@ -8,5 +8,5 @@ export interface ITodo {
 	completed: boolean;
 	selected: boolean;
 	dueDate: Date;
-	priority: PriorityLevel;
+	priorityLevel: PriorityLevel;
 }
