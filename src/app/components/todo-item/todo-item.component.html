@@ -1,4 +1,4 @@
-<div class="flex w-full justify-between border-b-2 p-2 text-left">
+<button class="flex w-full justify-between border-b-2 p-2 text-left" (click)="toggleTodo()">
 	<div class="flex">
 		@if (!todo?.completed) {
 			<div class="me-4 ms-2 flex items-center">
@@ -7,7 +7,6 @@
 					class="size-4 rounded border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:ring-offset-gray-900"
 					id="checkbox"
 					[checked]="todo?.selected"
-					(click)="toggleTodo()"
 				/>
 			</div>
 		}
@@ -22,4 +21,4 @@
 	@if (todo?.dueDate) {
 		<div class="text-sm text-gray-500">Fälligkeit: {{ todo?.dueDate | date }}</div>
 	}
-</div>
+</button>
