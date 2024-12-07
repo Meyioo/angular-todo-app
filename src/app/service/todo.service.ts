@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { DefaultTodos } from '../core/constants/todos.constants';
 import { ITodo } from '../core/model/todo.model';
+import { ToastService } from './toast.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -11,6 +12,7 @@ export class TodoService {
 	private readonly localStorageKey = 'todos';
 	private readonly todosSubject = new BehaviorSubject<ITodo[]>(DefaultTodos);
 	private readonly router = inject(Router);
+	private readonly toastService = inject(ToastService);
 
 	private ascSelectionOrder = true;
 	private ascDueDateOrder = true;
@@ -42,7 +44,11 @@ export class TodoService {
 			}
 		];
 		this.updateTodos(updatedTodos);
-		this.router.navigate(['/']);
+		this.toastService.showToast({
+			message: 'Aufgabe erfolgreich angelegt!',
+			color: 'bg-green-500',
+			duration: 2000
+		});
 	}
 
 	public selectTodo(id: number): void {
@@ -57,6 +63,11 @@ export class TodoService {
 			.getValue()
 			.map((todo) => (todo.selected ? { ...todo, completed: true, selected: false } : todo));
 		this.updateTodos(todos);
+		this.toastService.showToast({
+			message: 'Aufgaben erfolgreich abgeschlossen!',
+			color: 'bg-green-500',
+			duration: 2000
+		});
 	}
 
 	public getSelectedCount(): number {

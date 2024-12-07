@@ -1,0 +1,11 @@
+@if (toastService.toast$ | async; as toast) {
+	<div
+		[@toastAnimation]="toastState"
+		class="rounded-md text-sm text-white shadow-lg {{ toast.color }}"
+		role="alert"
+	>
+		<div class="flex p-4">
+			{{ toast.message }}
+		</div>
+	</div>
+}
