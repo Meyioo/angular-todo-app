@@ -4,11 +4,11 @@
 			routerLink="/"
 			routerLinkActive="router-link-active"
 			type="button"
-			class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
+			class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group"
 		>
 			<svg
 				[ngClass]="{ '!text-blue-500': router.url === '/' }"
-				class="w-5 h-5 mb-2 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+				class="w-5 h-5 mb-2 text-gray-500 group-hover:text-blue-600"
 				aria-hidden="true"
 				xmlns="http://www.w3.org/2000/svg"
 				fill="currentColor"
@@ -20,18 +20,18 @@
 			</svg>
 			<span
 				[ngClass]="{ '!text-blue-500': router.url === '/' }"
-				class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+				class="text-sm text-gray-500 group-hover:text-blue-600"
 				>Offen
 			</span>
 		</a>
 		<a
 			routerLink="/abgeschlossen"
 			type="button"
-			class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
+			class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group"
 		>
 			<svg
 				[ngClass]="{ '!text-blue-500': router.url === '/abgeschlossen' }"
-				class="w-6 h-6 text-gray-500 dark:text-white group-hover:text-blue-600"
+				class="w-6 h-6 text-gray-500 group-hover:text-blue-600"
 				aria-hidden="true"
 				xmlns="http://www.w3.org/2000/svg"
 				width="24"
@@ -48,7 +48,7 @@
 
 			<span
 				[ngClass]="{ '!text-blue-500': router.url === '/abgeschlossen' }"
-				class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+				class="text-sm text-gray-500 group-hover:text-blue-600"
 				>Abgeschlossen</span
 			>
 		</a>
@@ -59,7 +59,7 @@
 		>
 			<svg
 				[ngClass]="{ '!text-blue-500': router.url === '/anlegen' }"
-				class="w-6 h-6 text-gray-500 dark:text-white group-hover:text-blue-600"
+				class="w-6 h-6 text-gray-500 group-hover:text-blue-600"
 				aria-hidden="true"
 				xmlns="http://www.w3.org/2000/svg"
 				width="24"
@@ -76,7 +76,7 @@
 
 			<span
 				[ngClass]="{ '!text-blue-500': router.url === '/anlegen' }"
-				class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+				class="text-sm text-gray-500 group-hover:text-blue-600"
 				>Anlegen</span
 			>
 		</a>
