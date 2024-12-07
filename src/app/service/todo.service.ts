@@ -12,6 +12,11 @@ export class TodoService {
 	private readonly todosSubject = new BehaviorSubject<ITodo[]>(DefaultTodos);
 	private readonly router = inject(Router);
 
+	private ascSelectionOrder = true;
+	private ascDueDateOrder = true;
+	private ascCreateDateOrder = true;
+	private ascPriorityOrder = true;
+
 	constructor() {
 		this.todosSubject.next(this.loadTodosFromLocalStorage());
 	}
@@ -51,6 +56,51 @@ export class TodoService {
 		const todos = this.todosSubject
 			.getValue()
 			.map((todo) => (todo.selected ? { ...todo, completed: true, selected: false } : todo));
+		this.updateTodos(todos);
+	}
+
+	sortBySelection() {
+		const todos = this.todosSubject.getValue();
+		todos.sort((a, b) =>
+			this.ascSelectionOrder
+				? Number(a.selected) - Number(b.selected)
+				: Number(b.selected) - Number(a.selected)
+		);
+		this.ascSelectionOrder = !this.ascSelectionOrder;
+		this.updateTodos(todos);
+	}
+
+	sortByCreateDate() {
+		const todos = this.todosSubject.getValue();
+		todos.sort((a, b) =>
+			this.ascCreateDateOrder
+				? new Date(a.createDate).getTime() - new Date(b.createDate).getTime()
+				: new Date(b.createDate).getTime() - new Date(a.createDate).getTime()
+		);
+		this.ascCreateDateOrder = !this.ascCreateDateOrder;
+		this.updateTodos(todos);
+	}
+
+	sortByDueDate() {
+		const todos = this.todosSubject.getValue();
+		todos.sort((a, b) =>
+			this.ascDueDateOrder
+				? new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime()
+				: new Date(b.dueDate).getTime() - new Date(a.dueDate).getTime()
+		);
+		this.ascDueDateOrder = !this.ascDueDateOrder;
+		this.updateTodos(todos);
+	}
+
+	sortByPriority() {
+		const priorityOrder = ['low', 'medium', 'high'];
+		const todos = this.todosSubject.getValue();
+		todos.sort((a, b) =>
+			this.ascPriorityOrder
+				? priorityOrder.indexOf(a.priorityLevel) - priorityOrder.indexOf(b.priorityLevel)
+				: priorityOrder.indexOf(b.priorityLevel) - priorityOrder.indexOf(a.priorityLevel)
+		);
+		this.ascPriorityOrder = !this.ascPriorityOrder;
 		this.updateTodos(todos);
 	}
 

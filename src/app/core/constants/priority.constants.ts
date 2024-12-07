@@ -1,6 +1,6 @@
 export interface IPriority {
 	level: PriorityLevel;
-	label: string;
+	label: 'Gering' | 'Mittel' | 'Hoch';
 	color: string;
 	activeColor: string;
 }
