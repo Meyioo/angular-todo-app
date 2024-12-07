@@ -7,6 +7,8 @@ import {
 	ReactiveFormsModule,
 	Validators
 } from '@angular/forms';
+import { PriorityComponent } from '../components/priority/priority.component';
+import { PriorityLevel } from '../core/constants/priority.constants';
 import { TodoService } from '../service/todo.service';
 
 @Component({
@@ -14,7 +16,7 @@ import { TodoService } from '../service/todo.service';
 	templateUrl: './todo-create.component.html',
 	styleUrls: ['./todo-create.component.css'],
 	standalone: true,
-	imports: [CommonModule, FormsModule, ReactiveFormsModule]
+	imports: [CommonModule, FormsModule, ReactiveFormsModule, PriorityComponent]
 })
 export class TodoCreateComponent {
 	private readonly todoService = inject(TodoService);
@@ -26,8 +28,12 @@ export class TodoCreateComponent {
 			title: ['', Validators.required],
 			description: ['', Validators.required],
 			dueDate: ['', Validators.required],
-			priority: ['', Validators.required]
+			priorityLevel: ['', Validators.required]
 		});
+	}
+
+	onPriorityChange($event: PriorityLevel) {
+		this.todoForm.get('priority')?.setValue($event);
 	}
 
 	public submit(): void {

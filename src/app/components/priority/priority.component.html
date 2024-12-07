@@ -1,0 +1,12 @@
+@for (priority of priorities; track priority.level) {
+	<button
+		type="button"
+		class="center relative me-3 inline-block select-none whitespace-nowrap rounded-lg px-3.5 py-2 font-sans text-xs font-bold
+					uppercase leading-none text-white last-of-type:me-0 {{ priority.color }} {{
+			selectedPriority === priority.level ? priority.activeColor : ''
+		}}"
+		(click)="selectPriority(priority.level)"
+	>
+		<div class="mt-px">{{ priority.label }}</div>
+	</button>
+}
