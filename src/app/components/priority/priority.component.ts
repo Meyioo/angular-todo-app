@@ -21,8 +21,8 @@ export class PriorityComponent implements ControlValueAccessor {
 
 	priorities = Object.values(Priorities);
 
-	private onChange: (value: PriorityLevel) => void = () => {};
-	private onTouched: () => void = () => {};
+	private onChange: (value: PriorityLevel) => void = () => null;
+	private onTouched: () => void = () => null;
 
 	selectPriority(priority: PriorityLevel): void {
 		this.selectedPriority = priority;
@@ -43,7 +43,5 @@ export class PriorityComponent implements ControlValueAccessor {
 		this.onTouched = fn;
 	}
 
-	setDisabledState?(isDisabled: boolean): void {
-		// Handle the disabled state if needed
-	}
+	setDisabledState?(isDisabled: boolean): void {}
 }

@@ -8,7 +8,6 @@ import {
 	Validators
 } from '@angular/forms';
 import { PriorityComponent } from '../components/priority/priority.component';
-import { PriorityLevel } from '../core/constants/priority.constants';
 import { TodoService } from '../service/todo.service';
 
 @Component({
@@ -30,10 +29,6 @@ export class TodoCreateComponent {
 			dueDate: ['', Validators.required],
 			priorityLevel: ['', Validators.required]
 		});
-	}
-
-	onPriorityChange($event: PriorityLevel) {
-		this.todoForm.get('priority')?.setValue($event);
 	}
 
 	public submit(): void {
