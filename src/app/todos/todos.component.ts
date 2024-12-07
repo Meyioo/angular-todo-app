@@ -7,6 +7,7 @@ import { TitleService } from '../service/title.service';
 	templateUrl: './todos.component.html',
 	styleUrls: ['./todos.component.css'],
 	standalone: true,
+	host: { class: 'grow' },
 	imports: [TodoListComponent]
 })
 export class TodosComponent {

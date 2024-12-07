@@ -5,12 +5,13 @@ import { SearchbarComponent } from '../searchbar/searchbar.component';
 	selector: 'app-header',
 	templateUrl: './header.component.html',
 	styleUrls: ['./header.component.css'],
-	host: { class: 'z-50' },
+	host: { class: 'sticky top-0 border-b border-gray-200 bg-gray-50 z-50' },
 	standalone: true,
 	imports: [SearchbarComponent]
 })
 export class HeaderComponent {
 	@Input() public showSearchbar = false;
+	@Input() public showCompleteBtn = false;
 	@Input() public title = '';
 
 	public readonly todoService = inject(TodoService);

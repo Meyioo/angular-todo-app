@@ -15,6 +15,7 @@ import { TodoService } from '../service/todo.service';
 	templateUrl: './todo-create.component.html',
 	styleUrls: ['./todo-create.component.css'],
 	standalone: true,
+	host: { class: 'grow' },
 	imports: [CommonModule, FormsModule, ReactiveFormsModule, PriorityComponent]
 })
 export class TodoCreateComponent {

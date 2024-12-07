@@ -1,14 +1,13 @@
-<div class="flex flex-col h-screen justify-between">
-  <div>
-    <app-header
-      class="top-0 sticky"
-      [title]="(titleService.title$ | async)!"
-      [showSearchbar]="(titleService.title$ | async)! !== 'Aufgabe anlegen'"
-    ></app-header>
-    <router-outlet></router-outlet>
-  </div>
+<div class="flex flex-col justify-between h-screen">
+	<div>
+		<app-header
+			[title]="(titleService.title$ | async)!"
+			[showSearchbar]="(titleService.title$ | async)! !== 'Aufgabe anlegen'"
+			[showCompleteBtn]="(titleService.title$ | async)! === 'Offene Aufgaben'"
+		></app-header>
+	</div>
 
-  <div class="sticky bottom-0 w-full pt-5">
-    <app-navigation></app-navigation>
-  </div>
+	<router-outlet></router-outlet>
+
+	<app-navigation></app-navigation>
 </div>
