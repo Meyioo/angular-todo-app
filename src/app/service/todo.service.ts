@@ -59,6 +59,10 @@ export class TodoService {
 		this.updateTodos(todos);
 	}
 
+	public getSelectedCount(): number {
+		return this.todosSubject.getValue().filter((todo) => todo.selected).length;
+	}
+
 	sortBySelection() {
 		const todos = this.todosSubject.getValue();
 		todos.sort((a, b) =>
