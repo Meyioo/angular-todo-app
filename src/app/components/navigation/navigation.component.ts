@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { TodoService } from '../../service/todo.service';
 
 @Component({
@@ -10,15 +10,8 @@ import { TodoService } from '../../service/todo.service';
 	standalone: true,
 	imports: [CommonModule, RouterLink]
 })
-export class NavigationComponent implements OnInit {
-	public readonly activatedRoute = inject(ActivatedRoute);
+export class NavigationComponent {
 	public readonly router = inject(Router);
 
 	public readonly todoService = inject(TodoService);
-
-	ngOnInit(): void {
-		this.activatedRoute.url.subscribe((url) => {
-			console.log(url);
-		});
-	}
 }
