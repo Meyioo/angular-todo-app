@@ -5,9 +5,7 @@ import { SearchbarComponent } from '../searchbar/searchbar.component';
 	selector: 'app-header',
 	templateUrl: './header.component.html',
 	styleUrls: ['./header.component.css'],
-	host: {
-		class: 'sticky top-0 border-b border-gray-200 bg-gray-50 z-50 border-gray-200 bg-gray-50'
-	},
+
 	standalone: true,
 	imports: [SearchbarComponent]
 })
