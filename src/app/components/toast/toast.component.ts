@@ -19,6 +19,7 @@ import { IToast, ToastService } from '../../service/toast.service';
 	imports: [CommonModule]
 })
 export class ToastComponent {
+  
 	public readonly toastService = inject(ToastService);
 	isVisible = false;
 	toast: IToast | null = null;
