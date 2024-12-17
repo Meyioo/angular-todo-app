@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchService } from '../../service/search.service';
@@ -8,10 +9,11 @@ import { TodoService } from '../../service/todo.service';
 	templateUrl: './searchbar.component.html',
 	styleUrls: ['./searchbar.component.css'],
 	standalone: true,
-	imports: [FormsModule, ReactiveFormsModule]
+	imports: [CommonModule, FormsModule, ReactiveFormsModule]
 })
 export class SearchbarComponent {
 	public searchForm: FormGroup;
+	public isDropdownOpen = false;
 
 	private readonly searchService = inject(SearchService);
 	public readonly todoService = inject(TodoService);
