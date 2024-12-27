@@ -8,11 +8,11 @@ import { IPriority, Priorities, PriorityLevel } from '../../core/constants/prior
 	standalone: true
 })
 export class TodoItemPriorityComponent implements OnInit {
-	@Input() public priorityLevel: PriorityLevel | undefined = PriorityLevel.Low;
+	@Input() public priorityLevel: PriorityLevel = PriorityLevel.Low;
 
 	public priority: IPriority = Priorities[PriorityLevel.Low];
 
 	public ngOnInit(): void {
-		this.priority = Priorities[this.priorityLevel!];
+		this.priority = Priorities[this.priorityLevel];
 	}
 }
